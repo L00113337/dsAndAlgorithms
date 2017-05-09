@@ -1,4 +1,4 @@
-package ie.stanley.algorithms.timer;
+package ie.stanley.Lab1.timer;
 
 /**
  * Created by stanley nyadzayo on 31/01/17.
@@ -8,7 +8,7 @@ package ie.stanley.algorithms.timer;
  */
 public class StopWatch {
     private long elapsedTime;
-    private long startTime;
+    private long startTime, endTime;
     private boolean isRunning;
 
     public StopWatch() {
@@ -19,20 +19,20 @@ public class StopWatch {
         if (isRunning)
             return;
         isRunning = true;
-        startTime = System.nanoTime();
+        startTime = System.currentTimeMillis();
     }
 
     public void stop() {
         if (!isRunning)
             return;
         isRunning = false;
-        long endTime = System.nanoTime();
+        endTime = System.currentTimeMillis();
         elapsedTime = elapsedTime + endTime - startTime;
     }
 
     public long getElapsedTime() {
         if (isRunning) {
-            long endTime = System.nanoTime();
+            endTime = System.currentTimeMillis();
             return elapsedTime + endTime - startTime;
         } else
             return elapsedTime;
